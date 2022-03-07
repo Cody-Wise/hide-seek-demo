@@ -43,8 +43,8 @@ const hidingPlaces = [
     'boulder'
 ];
 
-   let correctGuesses = 0;
-    let totalGuesses = 0;
+let correctGuesses = 0;
+let totalGuesses = 0;
 
 function getRandomHidingSpot(hidingPlaces) {
     {
