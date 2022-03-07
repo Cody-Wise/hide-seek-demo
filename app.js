@@ -42,6 +42,9 @@ function getRandomHidingSpot() {
         'boulder'
     ];
 
+    let correctGuesses = 0;
+    let totalGuesses = 0;
+
     const index = Math.floor(Math.random() * hidingPlaces.length);
 
     // use the random index above and the array of hidingPlaces to get a random hiding place string
