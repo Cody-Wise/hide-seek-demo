@@ -24,6 +24,7 @@ shedButton.addEventListener('click', () => {
     const correctSpot = getRandomHidingSpot(hidingPlaces);
     handleGuess('shed', correctSpot);
     
+    
 
     // call the handleGuess function with the correct parameters (the user's guess and the "correct" hiding place) to do DOM work
 });
@@ -139,3 +140,6 @@ function handleGuess(userGuess, correctSpot) {
 
     // update the DOM to show the new value of wins, losses and total guesses to the user
 }
+
+
+
