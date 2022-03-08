@@ -10,29 +10,46 @@ const boulderContainer = document.getElementById('boulder-container');
 const totalEl = document.getElementById('total');
 const lossesEl = document.getElementById('losses');
 const winsEl = document.getElementById('wins');
+const shedHistoryEl = document.getElementById('history-shed');
+const boulderHistoryEl = document.getElementById('history-boulder');
+const treeHistoryEl = document.getElementById('history-tree');
+const shedCorrectEl = document.getElementById('correct-shed');
+const treeCorrectEl = document.getElementById('correct-tree');
+const boulderCorrectEl = document.getElementById('correct-boulder');
+console.log(shedCorrectEl, treeCorrectEl, boulderCorrectEl);
 
 shedButton.addEventListener('click', () => {
+    ++shedHistory;
+   
     // get a random item to call the 'correct spot'
     const correctSpot = getRandomHidingSpot(hidingPlaces);
     handleGuess('shed', correctSpot);
-
+    
 
     // call the handleGuess function with the correct parameters (the user's guess and the "correct" hiding place) to do DOM work
 });
 
-treeButton.addEventListener('click', () => {
 
+
+    
+
+
+treeButton.addEventListener('click', () => {
+    ++treeHistory;
     const correctSpot = getRandomHidingSpot(hidingPlaces);
     handleGuess('tree', correctSpot);
     // get a random item to call the 'correct spot'
-
+    
     // call the handleGuess function with the correct parameters (the user's guess and the "correct" hiding place) to do DOM work
 });
 
 boulderButton.addEventListener('click', () => {
     // get a random item to call the 'correct spot'
+    ++boulderHistory;
     const correctSpot = getRandomHidingSpot(hidingPlaces);
     handleGuess('boulder', correctSpot);
+
+    
     // call the handleGuess function with the correct parameters (the user's guess and the "correct" hiding place) to do DOM work
 });
  
@@ -45,6 +62,13 @@ const hidingPlaces = [
 
 let correctGuesses = 0;
 let totalGuesses = 0;
+let shedHistory = 0;
+let treeHistory = 0;
+let boulderHistory = 0;
+let shedCorrect = 0;
+let treeCorrect = 0;
+let boulderCorrect = 0;
+
 
 function getRandomHidingSpot(hidingPlaces) {
     {
@@ -78,11 +102,30 @@ function handleGuess(userGuess, correctSpot) {
 
     if (userGuess === correctSpot){
         ++correctGuesses; 
+        if (correctSpot === 'shed'){
+            shedCorrect++;
+        }
+        
+        else if (correctSpot === 'tree'){
+            treeCorrect++;
+        }
+        else if (correctSpot === 'boulder'){
+            boulderCorrect++;
+        
+        }
     }
 
     winsEl.textContent = correctGuesses;
     totalEl.textContent = totalGuesses;
     lossesEl.textContent = totalGuesses - correctGuesses;
+    shedHistoryEl.textContent = shedHistory;
+    treeHistoryEl.textContent = treeHistory;
+    boulderHistoryEl.textContent = boulderHistory;
+    shedCorrectEl.textContent = shedCorrect;
+    treeCorrectEl.textContent = treeCorrect;
+    boulderCorrectEl.textContent = boulderCorrect;
+
+
 
 
     // we can do that by removing the .face class from all containers
