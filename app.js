@@ -16,7 +16,6 @@ const treeHistoryEl = document.getElementById('history-tree');
 const shedCorrectEl = document.getElementById('correct-shed');
 const treeCorrectEl = document.getElementById('correct-tree');
 const boulderCorrectEl = document.getElementById('correct-boulder');
-console.log(shedCorrectEl, treeCorrectEl, boulderCorrectEl);
 
 shedButton.addEventListener('click', () => {
     ++shedHistory;
